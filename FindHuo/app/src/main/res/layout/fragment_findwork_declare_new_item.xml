@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rv_findwork_declare_new_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_findworke_declare_new_head"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/btn_pay_selected3x"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_toRightOf="@id/iv_findworke_declare_new_head"
+        android:text="name"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_findwork_declare_new_name"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/tv_findwork_declare_new_name"
+        android:text="家电维修保养"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_range_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_findwork_declare_new_name"
+        android:layout_below="@id/tv_findwork_declare_new_name"
+        android:text="服务范围: "
+        />
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_findwork_declare_new_name"
+        android:layout_toRightOf="@id/tv_findwork_declare_new_range_tv"
+        android:text="大东区及周边"
+        />
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/tv_findwork_declare_new_name"
+        android:layout_marginRight="20dp"
+        android:text="面议"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_findwork_declare_new_name"
+        android:layout_toLeftOf="@id/tv_findwork_declare_new_price"
+        android:text="价格："/>
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rv_layout_lottery">
+
+   <ImageView
+       android:layout_width="80dp"
+       android:layout_height="80dp"
+       android:src="@mipmap/btn_pay_selected3x"
+      android:layout_marginTop="10dp"
+       android:layout_marginLeft="20dp"
+       android:layout_marginRight="15dp"
+       android:scaleType="fitXY"
+       android:id="@+id/iv_lottery_rv_item_icon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="站名"
+        android:layout_toRightOf="@id/iv_lottery_rv_item_icon"
+        android:layout_alignTop="@id/iv_lottery_rv_item_icon"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:id="@+id/tv_lottery_station_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地址"
+        android:layout_toRightOf="@id/iv_lottery_rv_item_icon"
+        android:layout_below="@id/tv_lottery_station_name"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+       android:id="@+id/tv_lottery_station_addr" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="13dp"
+        android:background="#e0e0e0"
+       android:layout_below="@id/iv_lottery_rv_item_icon"
+        android:layout_marginTop="15dp"></LinearLayout>
+</RelativeLayout>
