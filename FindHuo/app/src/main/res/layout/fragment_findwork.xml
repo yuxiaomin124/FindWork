@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@android:color/white"
               android:orientation="vertical">
 
     <ScrollView
@@ -36,15 +37,27 @@
                     <TextView
                         android:id="@+id/tv_findwork_find"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@mipmap/btn_pay_selected3x"
                         android:padding="10dp"
-                        android:text="找零工"/>
+                        android:text="找零工"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/tv_findwork_do"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="干零活"/>
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/shap_findwork_select"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="干零活"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"/>
                 </LinearLayout>
             </RelativeLayout>
 
@@ -53,7 +66,7 @@
                 android:id="@+id/view_pager_findworke"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="15dp" />
+                android:layout_marginTop="15dp"/>
 
             <LinearLayout
                 android:id="@+id/ll_findworke"
@@ -61,34 +74,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-25dp"
                 android:gravity="center"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="最新发布"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:text="最新发布"
                 />
 
             <com.jinyuankeji.yxm.findhuo.tools.SVL
+                android:id="@+id/lv_findwrke_decalre_new"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/lv_findwrke_decalre_new"></com.jinyuankeji.yxm.findhuo.tools.SVL>
+                android:layout_height="wrap_content"></com.jinyuankeji.yxm.findhuo.tools.SVL>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="热门分类"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:text="热门分类"/>
 
             <com.jinyuankeji.yxm.findhuo.tools.SVG
+                android:id="@+id/gv_findworke_hot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:numColumns="4"
-                android:id="@+id/gv_findworke_hot"/>
-
+                android:numColumns="4"/>
 
 
         </LinearLayout>

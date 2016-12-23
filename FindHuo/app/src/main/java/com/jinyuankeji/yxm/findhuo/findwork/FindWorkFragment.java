@@ -1,6 +1,7 @@
 package com.jinyuankeji.yxm.findhuo.findwork;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseFragment;
@@ -60,6 +62,8 @@ public class FindWorkFragment extends BaseFragment {
 
     private String str[] = {"技工", "促销导购", "钟点工", "家教", "翻译", "送货", "心理咨询", "其他"};
 
+    private TextView tvFindWork,tvDoWork;
+
 
     @Override
     protected int initLayout() {
@@ -74,6 +78,8 @@ public class FindWorkFragment extends BaseFragment {
         scrollView = (ScrollView) getView().findViewById(R.id.sv_findworke);
         mLv = (SVL) getView().findViewById(R.id.lv_findwrke_decalre_new);
         mGv = (SVG) getView().findViewById(R.id.gv_findworke_hot);
+        tvFindWork = (TextView) getView().findViewById(R.id.tv_findwork_find);
+        tvDoWork = (TextView) getView().findViewById(R.id.tv_findwork_do);
 
     }
 
@@ -139,6 +145,26 @@ public class FindWorkFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), FindWorkHotTypeDetailActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        tvDoWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvDoWork.setBackgroundResource(R.mipmap.btn_pay_selected3x);
+                tvFindWork.setBackgroundResource(R.drawable.shap_findwork_select);
+                tvDoWork.setTextColor(Color.WHITE);
+                tvFindWork.setTextColor(Color.BLACK);
+            }
+        });
+
+        tvFindWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvFindWork.setBackgroundResource(R.mipmap.btn_pay_selected3x);
+                tvDoWork.setBackgroundResource(R.drawable.shap_findwork_select);
+                tvDoWork.setTextColor(Color.BLACK);
+                tvFindWork.setTextColor(Color.WHITE);
             }
         });
     }

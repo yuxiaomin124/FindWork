@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
     <!--<ScrollView-->
@@ -21,7 +22,7 @@
         android:layout_below="@+id/rv_lottery_detail_title"
         android:background="@color/colorTitle"
         android:scaleType="fitXY"
-       />
+        />
 
     <ImageView
         android:id="@+id/lottery_detail_more_back"
@@ -44,11 +45,11 @@
         android:id="@+id/tv_lottery_detail_station_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_lottery_detail_station_tel"
+        android:layout_alignTop="@+id/iv_lottery_detail_addr"
         android:layout_marginLeft="5dp"
         android:text="彩票站名称"
-        android:textColor="@color/colorLotteryDetail"
-        android:layout_alignTop="@+id/iv_lottery_detail_addr"
-        android:layout_alignStart="@+id/tv_lottery_detail_station_tel"/>
+        android:textColor="@color/colorLotteryDetail"/>
 
 
     <ImageView

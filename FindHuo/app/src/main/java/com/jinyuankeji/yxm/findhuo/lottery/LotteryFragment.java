@@ -86,9 +86,9 @@ public class LotteryFragment extends BaseFragment {
 
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
-        images.add(0, R.mipmap.ic_launcher);
+        images.add(0, R.mipmap.btn_pay_selected3x);
         images.add(1, R.mipmap.ic_launcher);
-        images.add(2, R.mipmap.ic_launcher);
+        images.add(2, R.mipmap.btn_pay_selected3x);
         initViewPager();
 
         rvAdapter = new LotteryStationRVAdapter(getActivity());
@@ -98,7 +98,7 @@ public class LotteryFragment extends BaseFragment {
         for (int i = 0; i < 50; i++) {
             bean.setAddr("大东区");
             bean.setNamr("张三");
-            bean.setImg(R.mipmap.ic_launcher);
+            bean.setImg(R.mipmap.btn_pay_selected3x);
             beanArrayList.add(bean);
         }
         rvAdapter.setStationBeanList(beanArrayList);

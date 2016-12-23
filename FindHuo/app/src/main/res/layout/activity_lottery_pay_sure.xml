@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rv_lottery_pay_sure_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorTitle"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:background="@color/colorTitle">
 
         <ImageView
             android:id="@+id/lottery_pay_sure_back"
@@ -34,48 +35,48 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_below="@id/rv_lottery_pay_sure_title"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/rv_lottery_pay_sure_title">
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
 
         <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="请输入密码："/>-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="请输入密码："/>-->
 
         <EditText
+            android:id="@+id/et_lottery_pay_sure_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
             android:hint="请输入密码"
-            android:textSize="16sp"
+            android:src="@mipmap/ic_launcher"
 
             android:textCursorDrawable="@null"
-            android:id="@+id/et_lottery_pay_sure_password"/>
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:orientation="vertical">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:orientation="vertical">-->
 
-        <!--<include layout="@layout/include_pay_bottom"/>-->
+    <!--<include layout="@layout/include_pay_bottom"/>-->
     <!--</LinearLayout>-->
 
     <Button
+        android:id="@+id/btn_lottery_pay_sure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ll"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="32dp"
+
         android:text="付  款"
-        android:textSize="17sp"
-        android:padding="5dp"
-        android:layout_below="@id/ll"
-        android:id="@+id/btn_lottery_pay_sure"
-        android:layout_marginTop="32dp"/>
+        android:textSize="17sp"/>
 
 
 </RelativeLayout>

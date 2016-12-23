@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@android:color/white"
               android:orientation="vertical">
 
     <LinearLayout
@@ -12,7 +13,8 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@drawable/shap_findwork_select">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -26,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:text="合计："
                     android:textColor="@color/colorLotteryDetail"
-                    android:textSize="16sp"/>
+                    android:textSize="17sp"/>
 
                 <TextView
                     android:id="@+id/tv_lottery_detail_price_total"
@@ -34,16 +36,16 @@
                     android:layout_height="wrap_content"
                     android:text="30"
                     android:textColor="#d31f23"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:text="元"
-                    android:textSize="16sp"
                     android:textColor="@color/colorLotteryDetail"
-                    android:layout_marginLeft="10dp"/>
+                    android:textSize="17sp"/>
             </LinearLayout>
         </RelativeLayout>
 
@@ -52,18 +54,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/colorTitle"
             android:orientation="horizontal"
-                android:background="@color/colorTitle"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
             <TextView
+                android:id="@+id/tv_lottery_detail_pay_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="付款"
                 android:textColor="@android:color/white"
-                android:id="@+id/tv_lottery_detail_pay_tv"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 />
         </RelativeLayout>
 

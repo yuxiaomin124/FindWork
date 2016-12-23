@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
 
     <ScrollView
-        android:layout_width="match_parent"
         android:id="@+id/sv_lottery"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -18,9 +19,9 @@
                 android:id="@+id/rv_lottery_detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/colorTitle"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true">
+                android:background="@color/colorTitle">
 
                 <Spinner
                     android:id="@+id/spinner_lottery"
@@ -28,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -44,8 +45,7 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/view_pager_lottery"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="15dp" />
+                android:layout_height="200dp"/>
 
             <LinearLayout
                 android:id="@+id/ll_lottery"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-25dp"
                 android:gravity="center"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -74,8 +74,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:text="彩票站"
-                    android:textSize="17sp"
-                    android:textColor="#302f2f" />
+                    android:textColor="#302f2f"
+                    android:textSize="17sp"/>
 
 
                 <ImageView
@@ -86,26 +86,25 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignTop="@id/tv_lottery_tv"
                     android:layout_marginRight="20dp"
-                    android:src="@mipmap/more3x" />
+                    android:src="@mipmap/more3x"/>
 
                 <TextView
                     android:id="@+id/tv_lottery_tv_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_toStartOf="@+id/iv_lottery_tv_more"
                     android:paddingRight="8dp"
                     android:text="更多"
-                    android:layout_marginTop="2dp"
                     android:textColor="#757575"
-                    android:textSize="14sp"
-                    android:layout_toStartOf="@+id/iv_lottery_tv_more"/>
+                    android:textSize="14sp"/>
             </RelativeLayout>
 
             <com.jinyuankeji.yxm.findhuo.tools.SVR
                 android:id="@+id/rv_lottery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
     </ScrollView>
