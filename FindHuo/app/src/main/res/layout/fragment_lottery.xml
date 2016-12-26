@@ -22,14 +22,27 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:background="@color/colorTitle">
+                <com.amap.api.maps2d.MapView
+                    android:id="@+id/map_view"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp" />
+                <!--<Spinner-->
+                    <!--android:id="@+id/spinner_lottery"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:layout_marginRight="20dp"-->
+                    <!--android:layout_marginTop="10dp"/>-->
 
-                <Spinner
-                    android:id="@+id/spinner_lottery"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_centerVertical="true"
+                    android:text="|"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/tv_lottery_location"/>
 
                 <TextView
                     android:layout_width="wrap_content"

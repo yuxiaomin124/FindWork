@@ -24,6 +24,7 @@ import com.jinyuankeji.yxm.findhuo.findwork.hot.FindWorkHotAdapter;
 import com.jinyuankeji.yxm.findhuo.findwork.hot.FindWorkHotBean;
 import com.jinyuankeji.yxm.findhuo.findwork.hot.hot_detail.FindWorkHotTypeDetailActivity;
 import com.jinyuankeji.yxm.findhuo.lottery.LotteryViewPagerAdapter;
+import com.jinyuankeji.yxm.findhuo.tools.DataValue;
 import com.jinyuankeji.yxm.findhuo.tools.SVG;
 import com.jinyuankeji.yxm.findhuo.tools.SVL;
 
@@ -35,7 +36,7 @@ import java.util.List;
  */
 
 public class FindWorkFragment extends BaseFragment {
-    private Spinner spinner;
+//    private Spinner spinner;
     private List<String> data_list;
     private ArrayAdapter<String> arr_adapter;
 
@@ -63,6 +64,7 @@ public class FindWorkFragment extends BaseFragment {
     private String str[] = {"技工", "促销导购", "钟点工", "家教", "翻译", "送货", "心理咨询", "其他"};
 
     private TextView tvFindWork,tvDoWork;
+    private TextView tvLocationFind;
 
 
     @Override
@@ -72,7 +74,7 @@ public class FindWorkFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        spinner = (Spinner) getView().findViewById(R.id.spinner_findwork);
+//        spinner = (Spinner) getView().findViewById(R.id.spinner_findwork);
         viewPagerBanner = (ViewPager) getView().findViewById(R.id.view_pager_findworke);
         llTip = (LinearLayout) getView().findViewById(R.id.ll_findworke);
         scrollView = (ScrollView) getView().findViewById(R.id.sv_findworke);
@@ -80,24 +82,25 @@ public class FindWorkFragment extends BaseFragment {
         mGv = (SVG) getView().findViewById(R.id.gv_findworke_hot);
         tvFindWork = (TextView) getView().findViewById(R.id.tv_findwork_find);
         tvDoWork = (TextView) getView().findViewById(R.id.tv_findwork_do);
+        tvLocationFind = (TextView) getView().findViewById(R.id.tv_findwork_location);
 
     }
 
     @Override
     protected void initData() {
         scrollView.scrollTo(0, 0);
-        //数据
-        data_list = new ArrayList<String>();
-        data_list.add("北京");
-        data_list.add("上海");
-        data_list.add("广州");
-        data_list.add("深圳");
-        //适配器
-        arr_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, data_list);
-        //设置样式
-        arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //加载适配器
-        spinner.setAdapter(arr_adapter);
+//        //数据
+//        data_list = new ArrayList<String>();
+//        data_list.add("北京");
+//        data_list.add("上海");
+//        data_list.add("广州");
+//        data_list.add("深圳");
+//        //适配器
+//        arr_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, data_list);
+//        //设置样式
+//        arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        //加载适配器
+//        spinner.setAdapter(arr_adapter);
 
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
@@ -167,6 +170,8 @@ public class FindWorkFragment extends BaseFragment {
                 tvFindWork.setTextColor(Color.WHITE);
             }
         });
+
+        tvLocationFind.setText(DataValue.LOCATION);
     }
 
 

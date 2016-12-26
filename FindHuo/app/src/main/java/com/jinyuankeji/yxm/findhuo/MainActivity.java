@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         replaceFragment(new LotteryFragment());
 
-        rbtnLottery.setTextColor(0xff158aae);
-        rbtnFindWork.setTextColor(0xff8b8b8b);
-        rbtnDeclare.setTextColor(0xff8b8b8b);
-        rbtnMy.setTextColor(0xff8b8b8b);
+        rbtnLottery.setTextColor(0xff58bbb8);
+        rbtnFindWork.setTextColor(0xff58bbb8);
+        rbtnDeclare.setTextColor(0xff58bbb8);
+        rbtnMy.setTextColor(0xff58bbb8);
 
     }
 
@@ -59,31 +59,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.rbtn_lottery:
                 replaceFragment(new LotteryFragment());
-                rbtnLottery.setTextColor(0xff158aae);
-                rbtnDeclare.setTextColor(0xff8b8b8b);
-                rbtnFindWork.setTextColor(0xff8b8b8b);
-                rbtnMy.setTextColor(0xff8b8b8b);
+                rbtnLottery.setTextColor(0xff58bbb8);
+                rbtnDeclare.setTextColor(0xff58bbb8);
+                rbtnFindWork.setTextColor(0xff58bbb8);
+                rbtnMy.setTextColor(0xff58bbb8);
                 break;
             case R.id.rbtn_findwork:
                 replaceFragment(new FindWorkFragment());
-                rbtnLottery.setTextColor(0xff8b8b8b);
-                rbtnFindWork.setTextColor(0xff158aae);
-                rbtnDeclare.setTextColor(0xff8b8b8b);
-                rbtnMy.setTextColor(0xff8b8b8b);
+                rbtnLottery.setTextColor(0xff58bbb8);
+                rbtnFindWork.setTextColor(0xff58bbb8);
+                rbtnDeclare.setTextColor(0xff58bbb8);
+                rbtnMy.setTextColor(0xff58bbb8);
                 break;
             case R.id.rbtn_declare:
                 replaceFragment(new DeclareFragment());
-                rbtnLottery.setTextColor(0xff8b8b8b);
-                rbtnFindWork.setTextColor(0xff8b8b8b);
-                rbtnDeclare.setTextColor(0xff158aae);
-                rbtnMy.setTextColor(0xff8b8b8b);
+                rbtnLottery.setTextColor(0xff58bbb8);
+                rbtnFindWork.setTextColor(0xff58bbb8);
+                rbtnDeclare.setTextColor(0xff58bbb8);
+                rbtnMy.setTextColor(0xff58bbb8);
                 break;
             case R.id.rbtn_my:
                 replaceFragment(new MyFragment());
-                rbtnLottery.setTextColor(0xff8b8b8b);
-                rbtnFindWork.setTextColor(0xff8b8b8b);
-                rbtnDeclare.setTextColor(0xff8b8b8b);
-                rbtnMy.setTextColor(0xff158aae);
+                rbtnLottery.setTextColor(0xff58bbb8);
+                rbtnFindWork.setTextColor(0xff58bbb8);
+                rbtnDeclare.setTextColor(0xff58bbb8);
+                rbtnMy.setTextColor(0xff58bbb8);
                 break;
 
         }
