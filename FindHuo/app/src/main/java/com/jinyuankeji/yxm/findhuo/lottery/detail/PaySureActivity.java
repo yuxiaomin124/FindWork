@@ -1,6 +1,8 @@
 package com.jinyuankeji.yxm.findhuo.lottery.detail;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,7 +70,7 @@ public class PaySureActivity extends BaseActivity {
         rvPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PaySureActivity.this, "付款成功", Toast.LENGTH_SHORT).show();
+                showAlertDialog();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -77,5 +79,27 @@ public class PaySureActivity extends BaseActivity {
                 finish();
             }
         });
+    }
+
+
+    public void showAlertDialog() {
+
+        AlertDialog.Builder alert1 = new AlertDialog.Builder(this);
+        alert1.setMessage("付款成功。");
+
+        alert1.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alert1.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alert1.show();
+
     }
 }

@@ -1,14 +1,19 @@
 package com.jinyuankeji.yxm.findhuo.findwork.hot.hot_detail;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.FindWorkDeclareNewBean;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.declare_new_detail.FindWorkNewDetailActivity;
+import com.jinyuankeji.yxm.findhuo.lottery.detail.LotteryDetailActivity;
+import com.jinyuankeji.yxm.findhuo.lottery.more.MoreActivity;
 import com.jinyuankeji.yxm.findhuo.tools.SVL;
 
 import java.util.ArrayList;
@@ -25,6 +30,9 @@ public class FindWorkHotTypeDetailActivity extends BaseActivity {
     private SVL mLv;
     private TextView back;
 
+    private AutoCompleteTextView autoCompleteTextView;
+    private ArrayList<String> aotoString;
+
     @Override
     protected int initLayout() {
         return R.layout.activity_findwork_hot_type_detail;
@@ -34,6 +42,8 @@ public class FindWorkHotTypeDetailActivity extends BaseActivity {
     protected void initView() {
 mLv = (SVL) findViewById(R.id.lv_findwork_hot_type_detail);
         back = (TextView) findViewById(R.id.tv_findwork_hot_type_detail_back);
+
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto_search_findwork_hot_type_detail);
     }
 
     @Override
@@ -62,6 +72,36 @@ mLv = (SVL) findViewById(R.id.lv_findwork_hot_type_detail);
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(FindWorkHotTypeDetailActivity.this, FindWorkNewDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        autoCompleteTextView.setFocusable(false);
+        autoCompleteTextView.setFocusable(true);
+        autoCompleteTextView.setFocusableInTouchMode(true);
+        autoCompleteTextView.requestFocus();
+        search();
+    }
+
+    public void search() {
+//        ArrayList<String> sesect1 = {"","","","","","","","",""};
+        String[] str = {"aaa", "aabbbbb", "ssss", "qqqq", "wwww", "rrrrrr", "aa加加加", "鱼鱼鱼", "dddddddd"};
+        aotoString = new ArrayList<>();
+        for (int i = 0; i < str.length; i++) {
+            String name1 = str[i];
+            aotoString.add(name1);
+            Log.d("MoreActivity", aotoString.get(i));
+        }
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, aotoString);
+        autoCompleteTextView.setAdapter(adapter1);
+        autoCompleteTextView.setThreshold(1);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(FindWorkHotTypeDetailActivity.this, LotteryDetailActivity.class);
+//                datas = new ArrayList<>();
+//                datas = tools.queryAllLinkman();
+//                intent.putExtra("linkmanNum",datas.get(position).getNum().toString());
                 startActivity(intent);
             }
         });
