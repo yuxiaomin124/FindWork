@@ -1,17 +1,19 @@
 package com.jinyuankeji.yxm.findhuo.findwork.hot;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
-import com.jinyuankeji.yxm.findhuo.findwork.declare_new.FindWorkDeclareNewBean;
 import com.jinyuankeji.yxm.findhuo.lottery.LotteryStationBean;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by  yxiaomin on 2016/12/20 0020.
@@ -20,17 +22,19 @@ import java.util.List;
 public class FindWorkHotAdapter extends BaseAdapter {
     private Context mContext;
     private LotteryStationBean stationBean;
-    private List<FindWorkHotBean> datas;
+    private List<FindWorkHotBean> datass;
+    private List<Map<String, Object>> datas;
 
+    public void setListitem(List<Map<String, Object>> listitem) {
+        this.datas = listitem;
+        notifyDataSetChanged();
+    }
 
     public FindWorkHotAdapter(Context context) {
         mContext = context;
     }
 
-    public void setDatas(List<FindWorkHotBean> datas) {
-        this.datas = datas;
-        notifyDataSetChanged();
-    }
+
 
     public void setStationBean(LotteryStationBean stationBean) {
         this.stationBean = stationBean;
@@ -57,23 +61,28 @@ public class FindWorkHotAdapter extends BaseAdapter {
 
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_findwork_hot_item, parent, false);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.fragment_findwork_hot_type_item, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.tvName.setText(datas.get(position).getName());
 
+        Map<String, Object> map = datas.get(position);
+        viewHolder.ivIcon.setImageResource((Integer) map.get("image"));
+
+        viewHolder.tvName.setText(map.get("title") + "");
         return convertView;
 
     }
 
     public class ViewHolder {
         private TextView tvName;
+        private ImageView ivIcon;
 
         public ViewHolder(View itemView) {
-            tvName = (TextView) itemView.findViewById(R.id.tv_findwork_hot_name);
+            tvName = (TextView) itemView.findViewById(R.id.tv_findwork_hot_type_name);
+            ivIcon = (ImageView) itemView.findViewById(R.id.iv_findwork_hot_type_icon);
 
 
         }

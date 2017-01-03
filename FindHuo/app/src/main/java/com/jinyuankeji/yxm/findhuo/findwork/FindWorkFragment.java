@@ -29,7 +29,12 @@ import com.jinyuankeji.yxm.findhuo.tools.SVG;
 import com.jinyuankeji.yxm.findhuo.tools.SVL;
 
 import java.util.ArrayList;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 
 /**
  * Created by yxiaomin on 2016/12/19 0019.
@@ -62,6 +67,8 @@ public class FindWorkFragment extends BaseFragment {
     private SVG mGv;
 
     private String str[] = {"技工", "促销导购", "钟点工", "家教", "翻译", "送货", "心理咨询", "其他"};
+private int img[] = {R.mipmap.mechanic3x,R.mipmap.salesman3x,R.mipmap.employee3x,R.mipmap.teacher3x,R.mipmap.translator3x,
+        R.mipmap.deliveryman3x,R.mipmap.taxi3x,R.mipmap.others3x,};
 
     private TextView tvFindWork,tvDoWork;
     private TextView tvLocationFind;
@@ -104,9 +111,9 @@ public class FindWorkFragment extends BaseFragment {
 
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
-        images.add(0, R.mipmap.ic_launcher);
-        images.add(1, R.mipmap.ic_launcher);
-        images.add(2, R.mipmap.ic_launcher);
+        images.add(0, R.mipmap.btn_pay_selected3x);
+        images.add(1, R.mipmap.btn_pay_selected3x);
+        images.add(2, R.mipmap.btn_pay_selected3x);
         initViewPager();
 
 
@@ -118,7 +125,7 @@ public class FindWorkFragment extends BaseFragment {
             newBean.setName("张三");
             newBean.setJob("保洁");
             newBean.setPrice("1000");
-            newBean.setImg(R.mipmap.ic_launcher);
+            newBean.setImg(R.mipmap.btn_pay_selected3x);
             mNewBeanList.add(newBean);
         }
         mNewAdapter.setDatas(mNewBeanList);
@@ -134,14 +141,54 @@ public class FindWorkFragment extends BaseFragment {
         mHotAdapter = new FindWorkHotAdapter(getActivity());
         mHotBeanList = new ArrayList<>();
         FindWorkHotBean hotBean = new FindWorkHotBean();
-        for (int i = 0; i < str.length; i++) {
-            hotBean.setName(str[i]);
-            Log.d("FindWorkFragment", hotBean.getName());
-            mHotBeanList.add(hotBean);
 
-        }
+//        for (int i = 0; i < str.length; i++) {
+//            hotBean.setName("技工",0);
+//            Log.d("FindWorkFragment", hotBean.getName());
+//            hotBean.setImg(R.mipmap.mechanic3x,0);
+            List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
 
-        mHotAdapter.setDatas(mHotBeanList);
+            // 将上述资源转化为list集合
+            for (int i = 0; i < str.length; i++) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("image", img[i]);
+                map.put("title", str[i]);
+
+                mHotBeanList.add(map);
+            }
+
+
+
+
+
+//        mHotBeanList.add(0,hotBean);
+//        hotBean.setName("促销导购",1);
+//        hotBean.setImg(R.mipmap.mechanic3x,1);
+//        mHotBeanList.add(1,hotBean);
+//        hotBean.setName("钟点工",2);
+//        hotBean.setImg(R.mipmap.mechanic3x,2);
+//        mHotBeanList.add(2,hotBean);
+//        hotBean.setName("家教",3);
+//        hotBean.setImg(R.mipmap.mechanic3x,3);
+//        mHotBeanList.add(3,hotBean);
+//        hotBean.setName("翻译",4);
+//        hotBean.setImg(R.mipmap.mechanic3x,4);
+//        mHotBeanList.add(4,hotBean);
+//        hotBean.setName("送货",5);
+//        hotBean.setImg(R.mipmap.mechanic3x,5);
+//        mHotBeanList.add(5,hotBean);
+//        hotBean.setName("找车",6);
+//        hotBean.setImg(R.mipmap.mechanic3x,6);
+//        mHotBeanList.add(0,hotBean);
+//        hotBean.setName("其他",7);
+//        hotBean.setImg(R.mipmap.mechanic3x,7);
+//            mHotBeanList.add(hotBean);
+
+
+
+
+
+        mHotAdapter.setListitem(mHotBeanList);
         mGv.setAdapter(mHotAdapter);
         mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -154,19 +201,19 @@ public class FindWorkFragment extends BaseFragment {
         tvDoWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvDoWork.setBackgroundResource(R.mipmap.btn_pay_selected3x);
-                tvFindWork.setBackgroundResource(R.drawable.shap_findwork_select);
+                tvDoWork.setBackgroundResource(R.drawable.shap_findwork_select);
+                tvFindWork.setBackgroundColor(Color.WHITE);
                 tvDoWork.setTextColor(Color.WHITE);
-                tvFindWork.setTextColor(Color.BLACK);
+                tvFindWork.setTextColor(0xff58bbb8);
             }
         });
 
         tvFindWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvFindWork.setBackgroundResource(R.mipmap.btn_pay_selected3x);
-                tvDoWork.setBackgroundResource(R.drawable.shap_findwork_select);
-                tvDoWork.setTextColor(Color.BLACK);
+                tvDoWork.setBackgroundColor(Color.WHITE);
+                tvFindWork.setBackgroundResource(R.drawable.shap_findwork_select);
+                tvDoWork.setTextColor(0xff58bbb8);
                 tvFindWork.setTextColor(Color.WHITE);
             }
         });

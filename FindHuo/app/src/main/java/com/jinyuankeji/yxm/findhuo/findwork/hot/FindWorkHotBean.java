@@ -6,12 +6,24 @@ package com.jinyuankeji.yxm.findhuo.findwork.hot;
 
 public class FindWorkHotBean {
     private String name;
+    private int img;
+    private int pos;
+
+    public int getImg() {
+        return img;
+    }
+
+    public void setImg(int img,int pos) {
+        this.img = img;
+        this.pos = pos;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name,int pos) {
         this.name = name;
+        this.pos = pos;
     }
 }
