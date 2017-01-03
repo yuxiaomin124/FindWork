@@ -41,7 +41,7 @@ import java.util.Objects;
  */
 
 public class FindWorkFragment extends BaseFragment {
-//    private Spinner spinner;
+    //    private Spinner spinner;
     private List<String> data_list;
     private ArrayAdapter<String> arr_adapter;
 
@@ -66,11 +66,14 @@ public class FindWorkFragment extends BaseFragment {
     private List<FindWorkHotBean> mHotBeanList;
     private SVG mGv;
 
-    private String str[] = {"技工", "促销导购", "钟点工", "家教", "翻译", "送货", "心理咨询", "其他"};
-private int img[] = {R.mipmap.mechanic3x,R.mipmap.salesman3x,R.mipmap.employee3x,R.mipmap.teacher3x,R.mipmap.translator3x,
-        R.mipmap.deliveryman3x,R.mipmap.taxi3x,R.mipmap.others3x,};
+    private int img[] = {R.mipmap.mechanic3x, R.mipmap.salesman3x, R.mipmap.employee3x, R.mipmap.teacher3x, R.mipmap.translator3x,
+            R.mipmap.deliveryman3x, R.mipmap.taxi3x, R.mipmap.others3x,};
+    private String str[] = {"技工", "促销导购", "钟点工", "家教", "翻译", "送货", "找车", "其他"};
+    private String strFind[] = {"技工", "促销导购", "钟点工", "家教", "翻译", "送货", "心理咨询", "其他"};
+    private int imgFind[] = {R.mipmap.mechanic3x, R.mipmap.salesman3x, R.mipmap.employee3x, R.mipmap.teacher3x, R.mipmap.translator3x,
+            R.mipmap.deliveryman3x, R.mipmap.psychological3x, R.mipmap.others3x,};
 
-    private TextView tvFindWork,tvDoWork;
+    private TextView tvFindWork, tvDoWork;
     private TextView tvLocationFind;
 
 
@@ -111,7 +114,7 @@ private int img[] = {R.mipmap.mechanic3x,R.mipmap.salesman3x,R.mipmap.employee3x
 
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
-        images.add(0, R.mipmap.btn_pay_selected3x);
+        images.add(0, R.mipmap.ic_launcher);
         images.add(1, R.mipmap.btn_pay_selected3x);
         images.add(2, R.mipmap.btn_pay_selected3x);
         initViewPager();
@@ -120,7 +123,7 @@ private int img[] = {R.mipmap.mechanic3x,R.mipmap.salesman3x,R.mipmap.employee3x
         mNewAdapter = new FindWorkDeclareNewAdapter(getActivity());
         mNewBeanList = new ArrayList<>();
         FindWorkDeclareNewBean newBean = new FindWorkDeclareNewBean();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 3; i++) {
             newBean.setRange("大东区");
             newBean.setName("张三");
             newBean.setJob("保洁");
@@ -146,75 +149,157 @@ private int img[] = {R.mipmap.mechanic3x,R.mipmap.salesman3x,R.mipmap.employee3x
 //            hotBean.setName("技工",0);
 //            Log.d("FindWorkFragment", hotBean.getName());
 //            hotBean.setImg(R.mipmap.mechanic3x,0);
-            List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
+        final List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
 
-            // 将上述资源转化为list集合
-            for (int i = 0; i < str.length; i++) {
-                Map<String, Object> map = new HashMap<>();
-                map.put("image", img[i]);
-                map.put("title", str[i]);
+        // 将上述资源转化为list集合
+        for (int i = 0; i < str.length; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("image", imgFind[i]);
+            map.put("title", strFind[i]);
 
-                mHotBeanList.add(map);
-            }
-
-
-
-
-
-//        mHotBeanList.add(0,hotBean);
-//        hotBean.setName("促销导购",1);
-//        hotBean.setImg(R.mipmap.mechanic3x,1);
-//        mHotBeanList.add(1,hotBean);
-//        hotBean.setName("钟点工",2);
-//        hotBean.setImg(R.mipmap.mechanic3x,2);
-//        mHotBeanList.add(2,hotBean);
-//        hotBean.setName("家教",3);
-//        hotBean.setImg(R.mipmap.mechanic3x,3);
-//        mHotBeanList.add(3,hotBean);
-//        hotBean.setName("翻译",4);
-//        hotBean.setImg(R.mipmap.mechanic3x,4);
-//        mHotBeanList.add(4,hotBean);
-//        hotBean.setName("送货",5);
-//        hotBean.setImg(R.mipmap.mechanic3x,5);
-//        mHotBeanList.add(5,hotBean);
-//        hotBean.setName("找车",6);
-//        hotBean.setImg(R.mipmap.mechanic3x,6);
-//        mHotBeanList.add(0,hotBean);
-//        hotBean.setName("其他",7);
-//        hotBean.setImg(R.mipmap.mechanic3x,7);
-//            mHotBeanList.add(hotBean);
-
-
-
-
+            mHotBeanList.add(map);
+        }
 
         mHotAdapter.setListitem(mHotBeanList);
         mGv.setAdapter(mHotAdapter);
         mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Map<String, Object> map = mHotBeanList.get(position);
+                DataValue.FINDWORK_TYPE_TV = map.get("title") + "";
                 Intent intent = new Intent(getActivity(), FindWorkHotTypeDetailActivity.class);
                 startActivity(intent);
             }
         });
 
-        tvDoWork.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvDoWork.setBackgroundResource(R.drawable.shap_findwork_select);
-                tvFindWork.setBackgroundColor(Color.WHITE);
-                tvDoWork.setTextColor(Color.WHITE);
-                tvFindWork.setTextColor(0xff58bbb8);
-            }
-        });
 
-        tvFindWork.setOnClickListener(new View.OnClickListener() {
+        tvDoWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tvDoWork.setBackgroundColor(Color.WHITE);
                 tvFindWork.setBackgroundResource(R.drawable.shap_findwork_select);
                 tvDoWork.setTextColor(0xff58bbb8);
                 tvFindWork.setTextColor(Color.WHITE);
+                DataValue.FINDWORK_SELECT_TAG = "干零活";
+
+                if (DataValue.FINDWORK_SELECT_TAG.equals("干零活")) {
+                    mNewAdapter = new FindWorkDeclareNewAdapter(getActivity());
+                    mNewBeanList = new ArrayList<>();
+                    FindWorkDeclareNewBean newBean = new FindWorkDeclareNewBean();
+                    for (int i = 0; i < 3; i++) {
+                        newBean.setRange("大东区");
+                        newBean.setName("张张六");
+                        newBean.setJob("清洁工");
+                        newBean.setPrice("1000");
+                        newBean.setImg(R.mipmap.btn_pay_selected3x);
+                        mNewBeanList.add(newBean);
+                    }
+                    mNewAdapter.setDatas(mNewBeanList);
+                    mLv.setAdapter(mNewAdapter);
+                    mNewAdapter.notifyDataSetChanged();
+                    mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Intent intent = new Intent(getActivity(), FindWorkNewDetailActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    mHotAdapter = new FindWorkHotAdapter(getActivity());
+//                    mHotBeanList = new ArrayList<>();
+                    FindWorkHotBean hotBean = new FindWorkHotBean();
+                    final List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
+                    // 将上述资源转化为list集合
+                    for (int i = 0; i < str.length; i++) {
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("image", img[i]);
+                        map.put("title", str[i]);
+
+                        mHotBeanList.add(map);
+                    }
+
+                    mHotAdapter.setListitem(mHotBeanList);
+                    mGv.setAdapter(mHotAdapter);
+                    mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Map<String, Object> map = mHotBeanList.get(position);
+                            DataValue.FINDWORK_TYPE_TV = map.get("title") + "";
+                            if (DataValue.FINDWORK_TYPE_TV.equals("找车")) {
+                                Intent intent = new Intent(getActivity(), FindWorkHotTypeTaxiDetailActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(getActivity(), FindWorkHotTypeDetailActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        tvFindWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvFindWork.setBackgroundColor(Color.WHITE);
+                tvDoWork.setBackgroundResource(R.drawable.shap_findwork_select);
+                tvDoWork.setTextColor(Color.WHITE);
+                tvFindWork.setTextColor(0xff58bbb8);
+                DataValue.FINDWORK_SELECT_TAG = "找零工";
+
+                if (DataValue.FINDWORK_SELECT_TAG.equals("找零工")) {
+                    mNewAdapter = new FindWorkDeclareNewAdapter(getActivity());
+                    mNewBeanList = new ArrayList<>();
+                    FindWorkDeclareNewBean newBean = new FindWorkDeclareNewBean();
+                    for (int i = 0; i < 3; i++) {
+                        newBean.setRange("大东区");
+                        newBean.setName("张三");
+                        newBean.setJob("保洁");
+                        newBean.setPrice("1000");
+                        newBean.setImg(R.mipmap.btn_pay_selected3x);
+                        mNewBeanList.add(newBean);
+                    }
+                    mNewAdapter.setDatas(mNewBeanList);
+                    mLv.setAdapter(mNewAdapter);
+                    mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Intent intent = new Intent(getActivity(), FindWorkNewDetailActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    mHotAdapter = new FindWorkHotAdapter(getActivity());
+//                    mHotBeanList = new ArrayList<>();
+                    FindWorkHotBean hotBean = new FindWorkHotBean();
+
+//        for (int i = 0; i < str.length; i++) {
+//            hotBean.setName("技工",0);
+//            Log.d("FindWorkFragment", hotBean.getName());
+//            hotBean.setImg(R.mipmap.mechanic3x,0);
+                    final List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
+
+                    // 将上述资源转化为list集合
+                    for (int i = 0; i < str.length; i++) {
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("image", imgFind[i]);
+                        map.put("title", strFind[i]);
+
+                        mHotBeanList.add(map);
+                    }
+
+                    mHotAdapter.setListitem(mHotBeanList);
+                    mGv.setAdapter(mHotAdapter);
+                    mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Map<String, Object> map = mHotBeanList.get(position);
+                            DataValue.FINDWORK_TYPE_TV = map.get("title") + "";
+                            Intent intent = new Intent(getActivity(), FindWorkHotTypeDetailActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
             }
         });
 

@@ -7,4 +7,7 @@ package com.jinyuankeji.yxm.findhuo.tools;
 public class DataValue {
 
    public  static String LOCATION = "";
+   public  static String FINDWORK_SELECT_TAG = "找零工";
+   public  static String FINDWORK_TYPE_TV = "";
+
 }

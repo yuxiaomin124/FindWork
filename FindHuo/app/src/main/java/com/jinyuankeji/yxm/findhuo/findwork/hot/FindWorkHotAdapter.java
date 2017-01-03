@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.lottery.LotteryStationBean;
+import com.jinyuankeji.yxm.findhuo.tools.DataValue;
 
 import java.util.List;
 import java.util.Map;
@@ -72,6 +73,7 @@ public class FindWorkHotAdapter extends BaseAdapter {
         viewHolder.ivIcon.setImageResource((Integer) map.get("image"));
 
         viewHolder.tvName.setText(map.get("title") + "");
+
         return convertView;
 
     }

@@ -24,19 +24,19 @@
                 android:orientation="horizontal">
 
                 <!--<Spinner-->
-                    <!--android:id="@+id/spinner_findwork"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="20dp"-->
-                    <!--android:layout_marginTop="10dp"/>-->
+                <!--android:id="@+id/spinner_findwork"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="10dp"/>-->
                 <TextView
+                    android:id="@+id/tv_findwork_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
-                    android:textSize="15sp"
+                    android:layout_marginLeft="20dp"
                     android:textColor="@android:color/white"
-                    android:id="@+id/tv_findwork_location"/>
+                    android:textSize="15sp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -48,29 +48,29 @@
                     <TextView
                         android:id="@+id/tv_findwork_find"
                         android:layout_width="wrap_content"
-                        android:layout_height="35dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:background="@drawable/shap_findwork_select"
-                        android:paddingTop="8dp"
+                        android:background="@android:color/white"
                         android:paddingBottom="6dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
+                        android:paddingTop="8dp"
                         android:text="我要找零工"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/colorTitle"
                         android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/tv_findwork_do"
                         android:layout_width="wrap_content"
-                        android:layout_height="35dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:background="@android:color/white"
-                        android:paddingTop="8dp"
+                        android:background="@drawable/shap_findwork_select"
                         android:paddingBottom="6dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
+                        android:paddingTop="8dp"
                         android:text="我要干零活"
-                        android:textColor="@color/colorTitle"
+                        android:textColor="@android:color/white"
                         android:textSize="16sp"/>
                 </LinearLayout>
             </RelativeLayout>
@@ -90,12 +90,12 @@
                 android:orientation="horizontal"/>
 
             <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:text="最新发布"-->
-                <!--/>-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:text="最新发布"-->
+            <!--/>-->
 
             <com.jinyuankeji.yxm.findhuo.tools.SVL
                 android:id="@+id/lv_findwrke_decalre_new"
@@ -103,11 +103,11 @@
                 android:layout_height="wrap_content"></com.jinyuankeji.yxm.findhuo.tools.SVL>
 
             <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:text="热门分类"/>-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:text="热门分类"/>-->
 
             <com.jinyuankeji.yxm.findhuo.tools.SVG
                 android:id="@+id/gv_findworke_hot"
