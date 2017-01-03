@@ -78,7 +78,6 @@ public class MoreActivity extends BaseActivity {
         autoCompleteTextView.setFocusable(true);
         autoCompleteTextView.setFocusableInTouchMode(true);
         autoCompleteTextView.requestFocus();
-
         search();
 
     }
