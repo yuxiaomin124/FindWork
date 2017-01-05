@@ -22,5 +22,6 @@
         android:layout_below="@id/iv_findwork_hot_type_icon"
         android:layout_marginTop="10dp"
         android:text="技工"
-        />
+        android:textSize="16sp"
+       android:textColor="@color/colorLotteryDetail" />
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.jinyuankeji.yxm.findhuo.findwork.hot;
+package com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_main_gv;
 
 /**
  * Created by  yxiaomin on 2016/12/20 0020.

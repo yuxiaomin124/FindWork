@@ -8,138 +8,205 @@
     <RelativeLayout
         android:id="@+id/rv_findwork_new_detail_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_height="50dp"
+        android:background="@color/colorTitle"
         android:layout_alignParentTop="true"
-        android:background="#f88">
+        android:layout_alignParentStart="true">
 
-        <TextView
+        <ImageView
             android:id="@+id/findwork_declare_new_detail_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:text="返回"/>
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/back_arrow_3x"/>
 
         <TextView
+            android:id="@+id/tv_findwork_declare_new_detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="5dp"
             android:text="详情"
-            android:textSize="25sp"/>
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_findwork_detail_new_detail_head"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@id/rv_findwork_new_detail_title"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        />
 
     <TextView
         android:id="@+id/tv_findwork_new_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_findwork_detail_new_detail_head"
         android:layout_below="@id/rv_findwork_new_detail_title"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:text="孙某"
-        />
-
-    <TextView
-        android:id="@+id/tv_findwork_new_detail_job"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/tv_findwork_new_detail_name"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/tv_findwork_new_detail_name"
-        android:text="保养"/>
-
-    <TextView
-        android:id="@+id/tv_findwork_new_detail_range"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_findwork_new_detail_name"
-        android:layout_below="@id/tv_findwork_new_detail_name"
-        android:text="范围"/>
-
-    <TextView
-        android:id="@+id/tv_findwork_new_detail_sex_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_findwork_new_detail_name"
-        android:layout_below="@id/tv_findwork_new_detail_range"
-        android:text="性别："
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
         />
 
     <TextView
         android:id="@+id/tv_findwork_new_detail_sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_findwork_new_detail_range"
-        android:layout_toRightOf="@id/tv_findwork_new_detail_sex_tv"
-        android:text="男"
-        />
+     android:layout_below="@id/tv_findwork_new_detail_name"
+        android:layout_alignLeft="@id/tv_findwork_new_detail_name"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
+        android:layout_marginTop="14dp"
+        android:text="性别"/>
 
     <TextView
-        android:id="@+id/tv_findwork_new_detail_age_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_findwork_new_detail_name"
-        android:layout_below="@id/tv_findwork_new_detail_sex_tv"
-        android:text="年龄："/>
+        android:text="|"
+        android:id="@+id/tv_findwork_declare_new_detail_line"
+        android:layout_toRightOf="@id/tv_findwork_new_detail_sex"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
+        android:layout_alignTop="@id/tv_findwork_new_detail_sex"/>
 
     <TextView
         android:id="@+id/tv_findwork_new_detail_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_findwork_new_detail_sex_tv"
-        android:layout_toRightOf="@id/tv_findwork_new_detail_age_tv"
-        android:text="23岁"/>
-
+       android:layout_alignTop="@id/tv_findwork_new_detail_sex"
+        android:layout_toRightOf="@id/tv_findwork_declare_new_detail_line"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
+        android:text="年龄"/>
     <TextView
-        android:id="@+id/tv_findwork_new_detail_experience_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_findwork_new_detail_name"
-        android:layout_below="@id/tv_findwork_new_detail_age_tv"
-        android:text="工作经验："/>
-
+        android:text="|"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
+        android:id="@+id/tv_findwork_declare_new_detail_line2"
+        android:layout_toRightOf="@id/tv_findwork_new_detail_age"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@id/tv_findwork_new_detail_sex"/>
     <TextView
-        android:id="@+id/tv_findwork_new_detail_experience"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_findwork_new_detail_age_tv"
-        android:layout_toRightOf="@id/tv_findwork_new_detail_experience_tv"
-        android:text="15年"/>
+        android:text="经验"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
+        android:id="@+id/tv_findwork_declare_new_detail_exprice"
+        android:layout_alignTop="@id/tv_findwork_new_detail_sex"
+        android:layout_toRightOf="@id/tv_findwork_declare_new_detail_line2"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/tv_findwork_new_detail_salary_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/tv_findwork_new_detail_name"
-        android:layout_below="@id/tv_findwork_new_detail_experience_tv"
-        android:text="工资："/>
+        android:layout_below="@id/tv_findwork_new_detail_age"
+        android:text="薪资："
+        android:layout_marginTop="14dp"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"
+        />
 
     <TextView
-        android:id="@+id/tv_findwork_new_detail_salary"
+        android:id="@+id/tv_findwork_new_detail_se"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_findwork_new_detail_experience_tv"
+        android:layout_below="@id/tv_findwork_new_detail_age"
         android:layout_toRightOf="@id/tv_findwork_new_detail_salary_tv"
         android:text="面议"
+        android:layout_marginTop="14dp"
+        android:textSize="15sp"
+        android:textColor="@color/colorGray"
         />
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_detail_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/iv_findwork_detail_new_detail_head"
+        android:text="服务内容："
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_new_detail_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignTop="@id/tv_findwork_declare_new_detail_content_tv"
+        android:layout_toRightOf="@id/tv_findwork_declare_new_detail_content_tv"
+        android:text="家电维修保养"
+        android:textSize="15sp"
+        android:textColor="@color/colorGray"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_detail_range_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/tv_findwork_declare_new_detail_content_tv"
+        android:text="服务范围："
+        android:layout_marginTop="14dp"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_declare_new_detail_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_findwork_declare_new_detail_range_tv"
+        android:layout_toRightOf="@id/tv_findwork_declare_new_detail_range_tv"
+        android:text="大东区"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_findwork_new_detail_call_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:layout_marginLeft="20dp"
+        android:layout_below="@id/tv_findwork_declare_new_detail_range"
+        android:text="拨打电话："
+        android:layout_marginTop="14dp"
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"/>
+
+
 
     <LinearLayout
         android:id="@+id/ll_findwork_new_detail_fenge"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_below="@id/tv_findwork_new_detail_salary_tv"
+        android:layout_height="13dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_findwork_new_detail_call_tv"
         android:layout_marginTop="20dp"
-        android:background="@android:color/black"></LinearLayout>
+        android:background="#eeeeee"></LinearLayout>
 
     <ImageView
         android:id="@+id/iv_findwork_new_detail_tel_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@id/tv_findwork_new_detail_age_tv"
+       android:layout_toRightOf="@id/tv_findwork_new_detail_call_tv"
+        android:layout_alignTop="@id/tv_findwork_new_detail_call_tv"
+
         android:layout_marginRight="20dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/tel_iconlan3x"
+        android:layout_alignBottom="@id/tv_findwork_new_detail_call_tv"
+        android:paddingLeft="10dp"/>
 
     <TextView
         android:id="@+id/tv_findwork_new_detail_work_content_tv"
@@ -148,7 +215,9 @@
         android:layout_below="@id/ll_findwork_new_detail_fenge"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="工作内容："/>
+        android:text="工作内容描述："
+        android:textColor="@color/colorLotteryDetail"
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/tv_findwork_new_detail_work_content"
@@ -157,6 +226,10 @@
         android:layout_alignTop="@id/tv_findwork_new_detail_work_content_tv"
         android:layout_marginRight="20dp"
         android:layout_toRightOf="@id/tv_findwork_new_detail_work_content_tv"
-        android:text="内容"/>
+        android:text="内容"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"/>
+
+
 
 </RelativeLayout>

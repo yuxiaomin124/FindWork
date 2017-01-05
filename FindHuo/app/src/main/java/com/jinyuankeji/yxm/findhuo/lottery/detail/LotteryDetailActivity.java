@@ -13,7 +13,7 @@ import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
 /**
  * Created by  yxiaomin on 2016/12/20 0020.
  */
-public class LotteryDetailActivity extends BaseActivity{
+public class LotteryDetailActivity extends BaseActivity {
     private RelativeLayout rvPay;
     private ImageView back;
 
@@ -25,7 +25,7 @@ public class LotteryDetailActivity extends BaseActivity{
 
     @Override
     protected void initView() {
-rvPay = (RelativeLayout) findViewById(R.id.rv_lottery_detail_pay);
+        rvPay = (RelativeLayout) findViewById(R.id.rv_lottery_detail_pay);
         back = (ImageView) findViewById(R.id.lottery_detail_more_back);
     }
 
@@ -34,7 +34,7 @@ rvPay = (RelativeLayout) findViewById(R.id.rv_lottery_detail_pay);
         rvPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LotteryDetailActivity.this,PayExtraActivity.class);
+                Intent intent = new Intent(LotteryDetailActivity.this, PayExtraActivity.class);
                 startActivity(intent);
             }
         });

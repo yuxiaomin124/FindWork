@@ -99,7 +99,6 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
     protected void initData() {
         scrollView.scrollTo(0, 0);
 
-
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
         images.add(0, R.mipmap.btn_pay_selected3x);
@@ -126,6 +125,7 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
                 startActivity(intent);
             }
         });
+
 
         Log.d("卡卡卡卡卡", "tvMore:" + tvMore);
         tvMore.setOnClickListener(new View.OnClickListener() {

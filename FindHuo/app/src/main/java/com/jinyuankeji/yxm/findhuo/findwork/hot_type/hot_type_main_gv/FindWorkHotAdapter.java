@@ -1,7 +1,6 @@
-package com.jinyuankeji.yxm.findhuo.findwork.hot;
+package com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_main_gv;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.lottery.LotteryStationBean;
-import com.jinyuankeji.yxm.findhuo.tools.DataValue;
 
 import java.util.List;
 import java.util.Map;

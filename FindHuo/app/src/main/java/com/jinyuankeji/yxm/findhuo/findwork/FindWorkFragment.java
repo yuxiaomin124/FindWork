@@ -5,14 +5,12 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
@@ -20,9 +18,10 @@ import com.jinyuankeji.yxm.findhuo.base.BaseFragment;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.FindWorkDeclareNewAdapter;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.FindWorkDeclareNewBean;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.declare_new_detail.FindWorkNewDetailActivity;
-import com.jinyuankeji.yxm.findhuo.findwork.hot.FindWorkHotAdapter;
-import com.jinyuankeji.yxm.findhuo.findwork.hot.FindWorkHotBean;
-import com.jinyuankeji.yxm.findhuo.findwork.hot.hot_detail.FindWorkHotTypeDetailActivity;
+import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_main_gv.FindWorkHotAdapter;
+import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_main_gv.FindWorkHotBean;
+import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.hot_type_detail_one.FindWorkHotTypeDetailActivity;
+import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.findcar.findcar_one.FindWorkHotTypeTaxiDetailActivity;
 import com.jinyuankeji.yxm.findhuo.lottery.LotteryViewPagerAdapter;
 import com.jinyuankeji.yxm.findhuo.tools.DataValue;
 import com.jinyuankeji.yxm.findhuo.tools.SVG;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 
 /**
@@ -122,7 +120,7 @@ public class FindWorkFragment extends BaseFragment {
 
         mNewAdapter = new FindWorkDeclareNewAdapter(getActivity());
         mNewBeanList = new ArrayList<>();
-        FindWorkDeclareNewBean newBean = new FindWorkDeclareNewBean();
+        final FindWorkDeclareNewBean newBean = new FindWorkDeclareNewBean();
         for (int i = 0; i < 3; i++) {
             newBean.setRange("大东区");
             newBean.setName("张三");
@@ -136,6 +134,7 @@ public class FindWorkFragment extends BaseFragment {
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DataValue.FINDHUO_DETAIL_NOR = mNewBeanList.get(position).getName();
                 Intent intent = new Intent(getActivity(), FindWorkNewDetailActivity.class);
                 startActivity(intent);
             }
@@ -200,8 +199,11 @@ public class FindWorkFragment extends BaseFragment {
                     mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            DataValue.FINDHUO_DETAIL_NOR = mNewBeanList.get(position).getName();
                             Intent intent = new Intent(getActivity(), FindWorkNewDetailActivity.class);
                             startActivity(intent);
+//                            }
                         }
                     });
 
@@ -264,6 +266,8 @@ public class FindWorkFragment extends BaseFragment {
                     mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            DataValue.FINDHUO_DETAIL_NOR = mNewBeanList.get(position).getName();
                             Intent intent = new Intent(getActivity(), FindWorkNewDetailActivity.class);
                             startActivity(intent);
                         }

@@ -8,14 +8,16 @@ import android.widget.TextView;
 
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
+import com.jinyuankeji.yxm.findhuo.tools.DataValue;
 
 /**
  * Created by  yxiaomin on 2016/12/21 0021.
  */
 
 public class FindWorkNewDetailActivity extends BaseActivity {
-    private TextView back;
+    private ImageView back;
     private ImageView ivTel;
+    private TextView tvTitle;
 
     @Override
     protected int initLayout() {
@@ -24,13 +26,15 @@ public class FindWorkNewDetailActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        back = (TextView) findViewById(R.id.findwork_declare_new_detail_back);
+        back = (ImageView) findViewById(R.id.findwork_declare_new_detail_back);
 ivTel = (ImageView) findViewById(R.id.iv_findwork_new_detail_tel_call);
+        tvTitle = (TextView) findViewById(R.id.tv_findwork_declare_new_detail_title);
 
     }
 
     @Override
     protected void initData() {
+        tvTitle.setText(DataValue.FINDHUO_DETAIL_NOR);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

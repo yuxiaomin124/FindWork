@@ -1,4 +1,4 @@
-package com.jinyuankeji.yxm.findhuo.findwork.hot.hot_detail;
+package com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.hot_type_detail_one;
 
 import android.content.Context;
 import android.view.LayoutInflater;

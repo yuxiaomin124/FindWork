@@ -1,11 +1,8 @@
-package com.jinyuankeji.yxm.findhuo.findwork.hot.hot_detail;
+package com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.hot_type_detail_one;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,8 +10,8 @@ import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.FindWorkDeclareNewBean;
 import com.jinyuankeji.yxm.findhuo.findwork.declare_new.declare_new_detail.FindWorkNewDetailActivity;
-import com.jinyuankeji.yxm.findhuo.lottery.detail.LotteryDetailActivity;
-import com.jinyuankeji.yxm.findhuo.lottery.more.MoreActivity;
+import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.findcar.findcar_one.FindWorkHotTypeTaxiDetailActivity;
+import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.psychological.FindWorkHotTypePsychologicalDetailActivity;
 import com.jinyuankeji.yxm.findhuo.tools.DataValue;
 import com.jinyuankeji.yxm.findhuo.tools.SVL;
 
@@ -76,8 +73,14 @@ public class FindWorkHotTypeDetailActivity extends BaseActivity {
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(FindWorkHotTypeDetailActivity.this, FindWorkNewDetailActivity.class);
-                startActivity(intent);
+                DataValue.FINDHUO_DETAIL_NOR = mNewBeanList.get(position).getName();
+                if (DataValue.FINDWORK_TYPE_TV.equals("心理咨询") ){
+                    Intent intent = new Intent(FindWorkHotTypeDetailActivity.this, FindWorkHotTypePsychologicalDetailActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(FindWorkHotTypeDetailActivity.this, FindWorkNewDetailActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
