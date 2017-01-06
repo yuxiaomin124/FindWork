@@ -266,8 +266,11 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
                             + aMapLocation.getStreetNum());
 //                    Toast.makeText(getActivity(), buffer.toString(), Toast.LENGTH_LONG).show();
 
-                    tvLocation.setText(aMapLocation.getCity());
-                    DataValue.LOCATION = aMapLocation.getCity();
+                    String location = aMapLocation.getCity().toString();
+                    String tv=location.replace("市", "");
+                    tvLocation.setText(tv);
+//                    DataValue.LOCATION = aMapLocation.getCity();
+                    DataValue.LOCATION = tv;
                     isFirstLoc = false;
                 }
             } else {
