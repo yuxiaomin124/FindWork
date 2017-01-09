@@ -37,22 +37,11 @@ public class PaySureActivity extends BaseActivity {
     @Override
     protected void initData() {
         etPassword.setFocusable(false);
-//        etPassword.clearFocus(); //失去焦点
+//        etPassword.clearFocus();
 
         etPassword.setFocusable(true);
         etPassword.setFocusableInTouchMode(true);
         etPassword.requestFocus();
-//        etPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if(hasFocus){//获得焦点
-//                    Toast.makeText(PaySureActivity.this, "获取焦点", Toast.LENGTH_SHORT).show();
-//                    rvPay.setBackgroundResource(R.mipmap.btn_pay_selected3x);
-//                }else{//失去焦点
-//                    Toast.makeText(PaySureActivity.this, "失去焦点", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
         etPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

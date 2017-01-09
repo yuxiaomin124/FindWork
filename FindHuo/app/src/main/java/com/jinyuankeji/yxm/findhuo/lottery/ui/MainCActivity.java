@@ -40,9 +40,7 @@ public class MainCActivity extends BaseChatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        /**
-         * 请求所有必要的权限----
-         */
+
         PermissionsManager.getInstance().requestAllManifestPermissionsIfNecessary(this, new PermissionsResultAction() {
             @Override
             public void onGranted() {
@@ -52,35 +50,35 @@ public class MainCActivity extends BaseChatActivity {
             public void onDenied(String permission) {
             }
         });
-        //注册一个监听连接状态的listener
+
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(this));
         emMessageListener = new EMMessageListener() {
 
             @Override
             public void onMessageReceived(List<EMMessage> messages) {
-                //收到消息----刷新一下当前页面喽
+
                 conversationListFragment.refresh();
-                EMClient.getInstance().chatManager().importMessages(messages);//保存到数据库
+                EMClient.getInstance().chatManager().importMessages(messages);
             }
 
             @Override
             public void onCmdMessageReceived(List<EMMessage> messages) {
-                //收到透传消息
+
             }
 
             @Override
             public void onMessageReadAckReceived(List<EMMessage> messages) {
-                //收到已读回执
+
             }
 
             @Override
             public void onMessageDeliveryAckReceived(List<EMMessage> message) {
-                //收到已送达回执
+
             }
 
             @Override
             public void onMessageChanged(EMMessage message, Object change) {
-                //消息状态变动
+
             }
         };
         EMClient.getInstance().chatManager().addMessageListener(emMessageListener);
@@ -95,29 +93,28 @@ public class MainCActivity extends BaseChatActivity {
 
             @Override
             public void onContactAgreed(String username) {
-                //好友请求被同意
+
 //                contactListFragment.refresh();
             }
 
             @Override
             public void onContactRefused(String username) {
-                //好友请求被拒绝
+
             }
 
             @Override
             public void onContactInvited(String username, String reason) {
-                //收到好友邀请
+
             }
 
             @Override
             public void onContactDeleted(String username) {
                 Log.e("","好友被删除了" + username);
-                //被删除时回调此方法
 
                 new Thread() {//需要在子线程中调用
                     @Override
                     public void run() {
-                        //需要设置联系人列表才能启动fragment
+
                         contactListFragment.setContactsMap(getContact());
                         contactListFragment.refresh();
                     }
@@ -127,13 +124,13 @@ public class MainCActivity extends BaseChatActivity {
 
             @Override
             public void onContactAdded(String username) {
-                //增加了联系人时回调此方法
+
                 Log.e("","添加好友了" + username);
 
                 new Thread() {//需要在子线程中调用
                     @Override
                     public void run() {
-                        //需要设置联系人列表才能启动fragment
+
                         contactListFragment.setContactsMap(getContact());
                         contactListFragment.refresh();
                     }
@@ -148,12 +145,12 @@ public class MainCActivity extends BaseChatActivity {
         new Thread() {//需要在子线程中调用
             @Override
             public void run() {
-                //需要设置联系人列表才能启动fragment
+
                 contactListFragment.setContactsMap(getContact());
             }
         }.start();
 
-        //设置item点击事件
+
         contactListFragment.setContactListItemClickListener(new EaseContactListFragment.EaseContactListItemClickListener() {
 
             @Override
@@ -166,7 +163,7 @@ public class MainCActivity extends BaseChatActivity {
 
             @Override
             public void onListItemClicked(EMConversation conversation) {
-                //进入聊天页面
+
                 startActivity(new Intent(MainCActivity.this, ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, conversation.getUserName()));
             }
         });

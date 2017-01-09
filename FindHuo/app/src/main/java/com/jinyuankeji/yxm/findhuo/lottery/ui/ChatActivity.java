@@ -16,11 +16,11 @@ public class ChatActivity extends BaseChatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        //注册一个监听连接状态的listener
+
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(this));
-        //new出EaseChatFragment或其子类的实例
+
         EaseChatFragment chatFragment = new EaseChatFragment();
-        //传入参数
+
         Bundle args = new Bundle();
 
         args.putInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);

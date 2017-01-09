@@ -57,7 +57,7 @@ public class RegistActivity extends BaseChatActivity {
         ButterKnife.inject(this);
         tvTitle.setText("用户注册");
         mActivity=this;
-        //注册一个监听连接状态的listener
+
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(this));
     }
 
@@ -80,12 +80,7 @@ public class RegistActivity extends BaseChatActivity {
         regist(userPhone, pwd);
     }
 
-    /**
-     * 用户注册(这里只是demo,没有自己写服务器,实际开发中是要通过后台服务器来注册,注册成功之后服务器再注册环信账户,为了简化,这里直接注册[官方都不建议这样做哦])
-     *
-     * @param userPhone
-     * @param pwd
-     */
+
     private void regist(final String userPhone, final String pwd) {
         new Thread() {//网络访问需要在子线程中进行
             @Override

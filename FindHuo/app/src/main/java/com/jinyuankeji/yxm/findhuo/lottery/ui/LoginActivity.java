@@ -55,18 +55,14 @@ public class LoginActivity extends BaseChatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
         checkIsLogin();
-        //注册一个监听连接状态的listener---------监听网络状态+账户是否在别处登录+请求服务器失败等.
+
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(this));
     }
 
-    /**
-     * 检测是否已经登录过了,登录过了就进入主页面
-     */
+
     private void checkIsLogin() {
         if (EMClient.getInstance().getInstance().isLoggedInBefore()) {
-            /**
-             * 不管如何,登录完成之后都要加载所有的组和所有的聊天信息
-             */
+
             EMClient.getInstance().groupManager().loadAllGroups();
             EMClient.getInstance().chatManager().loadAllConversations();
             startActivity(new Intent(LoginActivity.this, MainCActivity.class));
@@ -76,11 +72,7 @@ public class LoginActivity extends BaseChatActivity {
         }
     }
 
-    /**
-     * 下线按钮,便于测试
-     *
-     * @param view
-     */
+
     public void onLogout(View view) {
         EMClient.getInstance().logout(true, new EMCallBack() {
             @Override
@@ -97,7 +89,7 @@ public class LoginActivity extends BaseChatActivity {
             public void onProgress(int i, String s) {
 
             }
-        });//下线
+        });
     }
 
 
@@ -108,24 +100,15 @@ public class LoginActivity extends BaseChatActivity {
         login(userName, pwd);
     }
 
-    /**
-     * 登录
-     *
-     * @param userName 用户名
-     * @param pwd      密码
-     */
+
     private void login(final String userName, String pwd) {
         EMClient.getInstance().getInstance().login(userName, pwd, new EMCallBack() {//回调
             @Override
             public void onSuccess() {
-                /**
-                 * 登录成功就调用加载数据
-                 */
+
                 EMClient.getInstance().groupManager().loadAllGroups();
                 EMClient.getInstance().chatManager().loadAllConversations();
-                /**
-                 * 保存用户名
-                 */
+
                 getSharedPreferences(GlobalField.USERINFO_FILENAME, MODE_PRIVATE).edit().putString("username", userName).commit();
                 startActivity(new Intent(LoginActivity.this, MainCActivity.class));
                 Log.e("main", "登录聊天服务器成功！");
@@ -150,11 +133,7 @@ public class LoginActivity extends BaseChatActivity {
         });
     }
 
-    /**
-     * 注册按钮
-     *
-     * @param view
-     */
+
     public void onRegist(View view) {
         startActivity(new Intent(this, RegistActivity.class));
         finish();

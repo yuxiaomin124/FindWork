@@ -97,18 +97,6 @@ public class FindWorkFragment extends BaseFragment {
     @Override
     protected void initData() {
         scrollView.scrollTo(0, 0);
-//        //数据
-//        data_list = new ArrayList<String>();
-//        data_list.add("北京");
-//        data_list.add("上海");
-//        data_list.add("广州");
-//        data_list.add("深圳");
-//        //适配器
-//        arr_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, data_list);
-//        //设置样式
-//        arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        //加载适配器
-//        spinner.setAdapter(arr_adapter);
 
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
@@ -150,7 +138,7 @@ public class FindWorkFragment extends BaseFragment {
 //            hotBean.setImg(R.mipmap.mechanic3x,0);
         final List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
 
-        // 将上述资源转化为list集合
+
         for (int i = 0; i < str.length; i++) {
             Map<String, Object> map = new HashMap<>();
             map.put("image", imgFind[i]);
@@ -277,13 +265,10 @@ public class FindWorkFragment extends BaseFragment {
 //                    mHotBeanList = new ArrayList<>();
                     FindWorkHotBean hotBean = new FindWorkHotBean();
 
-//        for (int i = 0; i < str.length; i++) {
-//            hotBean.setName("技工",0);
-//            Log.d("FindWorkFragment", hotBean.getName());
-//            hotBean.setImg(R.mipmap.mechanic3x,0);
+
                     final List<Map<String, Object>> mHotBeanList = new ArrayList<Map<String, Object>>();
 
-                    // 将上述资源转化为list集合
+
                     for (int i = 0; i < str.length; i++) {
                         Map<String, Object> map = new HashMap<>();
                         map.put("image", imgFind[i]);
