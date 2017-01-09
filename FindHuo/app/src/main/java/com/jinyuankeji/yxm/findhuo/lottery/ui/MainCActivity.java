@@ -53,7 +53,7 @@ public class MainCActivity extends BaseChatActivity {
 
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(this));
         emMessageListener = new EMMessageListener() {
-
+//
             @Override
             public void onMessageReceived(List<EMMessage> messages) {
 
