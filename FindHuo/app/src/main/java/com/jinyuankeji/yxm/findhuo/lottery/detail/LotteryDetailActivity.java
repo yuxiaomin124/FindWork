@@ -15,8 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyphenate.EMCallBack;
+import com.hyphenate.EMContactListener;
 import com.hyphenate.chat.EMChatManager;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMMessage;
 import com.hyphenate.exceptions.HyphenateException;
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
@@ -48,6 +50,7 @@ public class LotteryDetailActivity extends BaseActivity {
         btnExit = (Button) findViewById(R.id.exit);
     }
 
+   private String firendName;
     @Override
     protected void initData() {
         rvPay.setOnClickListener(new View.OnClickListener() {
@@ -72,8 +75,6 @@ public class LotteryDetailActivity extends BaseActivity {
 
             }
         });
-
-
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,13 +122,12 @@ public class LotteryDetailActivity extends BaseActivity {
                 new Thread() {
                     @Override
                     public void run() {
-                        String firendName = newFirendName.getText().toString().trim();
+                        firendName = newFirendName.getText().toString().trim();
                         try {
                             EMClient.getInstance().contactManager().addContact(firendName, "我是你的朋友");
-
-//                            EMChatManager.
-//                                    .getInstance().acceptInvitation(user); // 同意
                             Log.e("","添加好友成功,等待回应:" + firendName);
+
+                            EMClient.getInstance().chatManager().saveMessage(EMMessage.createTxtSendMessage("已添加",firendName));
 
                         } catch (HyphenateException e) {
                             e.printStackTrace();
