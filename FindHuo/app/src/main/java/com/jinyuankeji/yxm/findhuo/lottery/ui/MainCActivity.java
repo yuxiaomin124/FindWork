@@ -191,9 +191,7 @@ public class MainCActivity extends BaseChatActivity {
         Map<String, EaseUser> map = new HashMap<>();
         try {
             List<String> userNames = EMClient.getInstance().contactManager().getAllContactsFromServer();
-//            KLog.e("......有几个好友:" + userNames.size());
             for (String userId : userNames) {
-//                KLog.e("好友列表中有 : " + userId);
                 map.put(userId, new EaseUser(userId));
             }
         } catch (HyphenateException e) {

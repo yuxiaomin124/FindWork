@@ -84,7 +84,6 @@ public class MoreActivity extends BaseActivity {
 
 
     public void search() {
-//        ArrayList<String> sesect1 = {"","","","","","","","",""};
         String[] str = {"aaa", "aabbbbb", "ssss", "qqqq", "wwww", "rrrrrr", "aa加加加", "鱼鱼鱼", "dddddddd"};
         aotoString = new ArrayList<>();
         for (int i = 0; i < str.length; i++) {
@@ -99,9 +98,6 @@ public class MoreActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MoreActivity.this, LotteryDetailActivity.class);
-//                datas = new ArrayList<>();
-//                datas = tools.queryAllLinkman();
-//                intent.putExtra("linkmanNum",datas.get(position).getNum().toString());
                 startActivity(intent);
             }
         });

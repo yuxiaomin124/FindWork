@@ -31,10 +31,8 @@ public class MyConnectionListener implements EMConnectionListener {
             @Override
             public void run() {
                 if (error == EMError.USER_REMOVED) {
-
                     Toast.makeText(context, "帐号已经被移除", Toast.LENGTH_SHORT).show();
                 } else if (error == EMError.USER_LOGIN_ANOTHER_DEVICE) {
-
                     Toast.makeText(context, "帐号在其他设备登录,被迫下线", Toast.LENGTH_SHORT).show();
                     EMClient.getInstance().logout(true, new EMCallBack() {
                         @Override
@@ -58,7 +56,6 @@ public class MyConnectionListener implements EMConnectionListener {
                     if (NetUtils.hasNetwork(context)) {
 
                     } else {
-
                         Toast.makeText(context, "当前网络不可用，请检查网络设置", Toast.LENGTH_SHORT).show();
                     }
                 }

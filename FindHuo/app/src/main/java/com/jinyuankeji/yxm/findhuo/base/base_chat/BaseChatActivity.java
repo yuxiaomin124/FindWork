@@ -6,7 +6,7 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by Administrator on 2016/8/12.
+ * Created by yuxiaomin on 2017/1/7.
  */
 public class BaseChatActivity extends AppCompatActivity {
     public Activity mActivity;

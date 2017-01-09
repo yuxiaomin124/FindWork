@@ -62,8 +62,8 @@ public class LotteryStationRVAdapter extends RecyclerView.Adapter<LotteryStation
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position1 = holder.getLayoutPosition();//getLayoutPosition()得到当前的position
-                mMyRvListener.onClick(position1);//position点击的位置
+                int position1 = holder.getLayoutPosition();
+                mMyRvListener.onClick(position1);
             }
         });
     }

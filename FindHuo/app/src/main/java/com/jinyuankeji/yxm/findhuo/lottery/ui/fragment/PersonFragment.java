@@ -46,7 +46,7 @@ public class PersonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_person, container, false);
         ButterKnife.inject(this, view);
 
-        tvTitle.setText("个人中心");
+        tvTitle.setText("个人");
         String userName = getActivity().getSharedPreferences(GlobalField.USERINFO_FILENAME, Context.MODE_PRIVATE).getString("username", "hdl");
         tvPersonUsername.setText(userName);
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(getActivity()));
@@ -63,7 +63,7 @@ public class PersonFragment extends Fragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_person_add:
-                addFriend();
+
                 break;
             case R.id.btn_remove_friend:
                 removeFriend();
@@ -72,14 +72,14 @@ public class PersonFragment extends Fragment {
                 EMClient.getInstance().logout(true, new EMCallBack() {
                     @Override
                     public void onSuccess() {
-                        Log.e("main", "下线成功了");
+                        Log.e("main", "下线");
                         startActivity(new Intent(getActivity(), LoginActivity.class));
                         getActivity().finish();
                     }
 
                     @Override
                     public void onError(int i, String s) {
-                        Log.e("main", "下线失败了！" + s);
+                        Log.e("main", "下线失败！" + s);
                     }
 
                     @Override
@@ -91,16 +91,14 @@ public class PersonFragment extends Fragment {
         }
     }
 
-    /**
-     * 移除好友
-     */
+
     private void removeFriend() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("删除好友");
+        builder.setTitle("删除");
         final EditText newFirendName = new EditText(getActivity());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         newFirendName.setLayoutParams(layoutParams);
-        newFirendName.setHint("要删除的好友名");
+        newFirendName.setHint("要删除");
         builder.setView(newFirendName);
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
@@ -128,43 +126,7 @@ public class PersonFragment extends Fragment {
         alertDialog.show();
     }
 
-    /**
-     * 添加好友
-     */
-    private void addFriend() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("添加好友");
-        final EditText newFirendName = new EditText(getActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        newFirendName.setLayoutParams(layoutParams);
-        newFirendName.setHint("新好友用户名");
-        builder.setView(newFirendName);
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-            }
-        });
-        builder.setPositiveButton("添加", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                new Thread() {
-                    @Override
-                    public void run() {
-                        String firendName = newFirendName.getText().toString().trim();
-                        try {
-                            EMClient.getInstance().contactManager().addContact(firendName, "我是你的朋友");
-                            Log.e("","添加好友成功,等待回应:" + firendName);
 
-                        } catch (HyphenateException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }.start();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
 
 }

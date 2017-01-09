@@ -51,7 +51,6 @@ public class LotteryViewPagerAdapter extends PagerAdapter implements ViewPager.O
 
     @Override
     public Object instantiateItem(final ViewGroup container, final int position) {
-
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_lottery_banner_item,null);
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
 
@@ -78,19 +77,14 @@ public class LotteryViewPagerAdapter extends PagerAdapter implements ViewPager.O
     public void onPageSelected(int position) {
 
         for (int i = 0; i < tips.length; i++) {
-
             if(i == position % images.size()){
-
                 tips[i].setImageResource(R.mipmap.fri3x);
             }else {
                 tips[i].setImageResource(R.mipmap.sec3x);
             }
-
         }
-
     }
 
-    // state = 0 state =1 state = 2
     @Override
     public void onPageScrollStateChanged(int state) {
 

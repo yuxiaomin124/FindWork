@@ -8,7 +8,7 @@ import com.hyphenate.easeui.controller.EaseUI;
 
 
 /**
- * Created by HDL on 2016/8/11.
+ * Created by yuxiaomin on 2017/1/7.
  */
 
 public class MyApplication extends Application {

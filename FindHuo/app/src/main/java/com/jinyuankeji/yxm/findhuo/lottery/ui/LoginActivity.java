@@ -67,8 +67,8 @@ public class LoginActivity extends BaseChatActivity {
             EMClient.getInstance().chatManager().loadAllConversations();
             startActivity(new Intent(LoginActivity.this, MainCActivity.class));
             finish();
-            Log.e("main", "已经登录过了,进入下一个页面！");
-//            Toast.makeText(LoginActivity.this, "已经登录过了,进入下一个页面", Toast.LENGTH_SHORT).show();
+            Log.e("main", "已经登录过了！");
+
         }
     }
 
