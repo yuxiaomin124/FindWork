@@ -105,9 +105,9 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
     static final int ITEM_PICTURE = 2;
     static final int ITEM_LOCATION = 3;
     
-    protected int[] itemStrings = { R.string.attach_take_pic, R.string.attach_picture, R.string.attach_location };
-    protected int[] itemdrawables = { R.drawable.ease_chat_takepic_selector, R.drawable.ease_chat_image_selector,
-            R.drawable.ease_chat_location_selector };
+//    protected int[] itemStrings = { R.string.attach_take_pic, R.string.attach_picture, R.string.attach_location };
+//    protected int[] itemdrawables = { R.drawable.ease_chat_takepic_selector, R.drawable.ease_chat_image_selector,
+//            R.drawable.ease_chat_location_selector };
     protected int[] itemIds = { ITEM_TAKE_PICTURE, ITEM_PICTURE, ITEM_LOCATION };
     private EMChatRoomChangeListener chatRoomChangeListener;
     private boolean isMessageListInited;
@@ -241,9 +241,9 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
      * register extend menu, item id need > 3 if you override this method and keep exist item
      */
     protected void registerExtendMenuItem(){
-        for(int i = 0; i < itemStrings.length; i++){
-            inputMenu.registerExtendMenuItem(itemStrings[i], itemdrawables[i], itemIds[i], extendMenuItemClickListener);
-        }
+//        for(int i = 0; i < itemStrings.length; i++){
+//            inputMenu.registerExtendMenuItem(itemStrings[i], itemdrawables[i], itemIds[i], extendMenuItemClickListener);
+//        }
     }
     
     
@@ -814,12 +814,12 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
         }
         File file = new File(filePath);
         if (file == null || !file.exists()) {
-            Toast.makeText(getActivity(), R.string.File_does_not_exist, 0).show();
+//            Toast.makeText(getActivity(), R.string.File_does_not_exist, 0).show();
             return;
         }
         //limit the size < 10M
         if (file.length() > 10 * 1024 * 1024) {
-            Toast.makeText(getActivity(), R.string.The_file_is_not_greater_than_10_m, 0).show();
+//            Toast.makeText(getActivity(), R.string.The_file_is_not_greater_than_10_m, "0").show();
             return;
         }
         sendFileMessage(filePath);
@@ -830,7 +830,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
      */
     protected void selectPicFromCamera() {
         if (!EaseCommonUtils.isSdcardExist()) {
-            Toast.makeText(getActivity(), R.string.sd_card_does_not_exist, 0).show();
+//            Toast.makeText(getActivity(), R.string.sd_card_does_not_exist, 0).show();
             return;
         }
 
@@ -885,7 +885,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
         if (chatType == EaseConstant.CHATTYPE_GROUP) {
             EMGroup group = EMClient.getInstance().groupManager().getGroup(toChatUsername);
             if (group == null) {
-                Toast.makeText(getActivity(), R.string.gorup_not_found, 0).show();
+//                Toast.makeText(getActivity(), R.string.gorup_not_found, 0).show();
                 return;
             }
             if(chatFragmentHelper != null){
@@ -961,7 +961,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
 
                 public void run() {
                     if (toChatUsername.equals(groupId)) {
-                        Toast.makeText(getActivity(), R.string.you_are_group, 1).show();
+//                        Toast.makeText(getActivity(), R.string.you_are_group, 1).show();
                         getActivity().finish();
                     }
                 }
@@ -974,7 +974,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
             getActivity().runOnUiThread(new Runnable() {
                 public void run() {
                     if (toChatUsername.equals(groupId)) {
-                        Toast.makeText(getActivity(), R.string.the_current_group, 1).show();
+//                        Toast.makeText(getActivity(), R.string.the_current_group, 1).show();
                         getActivity().finish();
                     }
                 }

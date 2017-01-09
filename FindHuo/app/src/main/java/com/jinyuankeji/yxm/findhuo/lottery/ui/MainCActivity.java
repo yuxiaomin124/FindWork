@@ -170,22 +170,16 @@ public class MainCActivity extends BaseChatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.fl_chat, conversationListFragment).commit();
     }
 
-    @OnClick({R.id.tv_chat_list})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_chat_list:
-//                conversationListFragment.onResume();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fl_chat, conversationListFragment).commit();
-                break;
-//            case R.id.tv_contact_list:
-////                contactListFragment.refresh();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fl_chat, contactListFragment).commit();
+//    @OnClick({R.id.tv_chat_list})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.tv_chat_list:
+////                conversationListFragment.onResume();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fl_chat, conversationListFragment).commit();
 //                break;
-//            case R.id.tv_persion:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fl_chat, personFragment).commit();
-//                break;
-        }
-    }
+//
+//        }
+//    }
 
     private Map<String, EaseUser> getContact() {
         Map<String, EaseUser> map = new HashMap<>();
