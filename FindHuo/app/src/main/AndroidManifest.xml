@@ -142,7 +142,8 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             </intent-filter>
         </activity>
-        <activity android:name=".lottery.ui.MainCActivity" />
+        <activity android:name=".lottery.ui.MainCActivity"
+                  android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".lottery.ui.ChatActivity"
             android:configChanges="keyboard|orientation|screenSize"

@@ -160,17 +160,10 @@ public class MainCActivity extends BaseChatActivity {
 //        }.start();
 //
 //
+
+
         conversationListFragment = new EaseConversationListFragment();
         conversationListFragment.setConversationListItemClickListener(new EaseConversationListFragment.EaseConversationListItemClickListener() {
-                                                                          @Override
-                                                                          public void onListItemClicked(EMConversation conversation) {
-
-                startActivity(new Intent(MainCActivity.this, ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, conversation.getUserName()));
-            }
-        });
-        conversationListFragment = new EaseConversationListFragment();
-        conversationListFragment.setConversationListItemClickListener(new EaseConversationListFragment.EaseConversationListItemClickListener() {
-
             @Override
             public void onListItemClicked(EMConversation conversation) {
 
