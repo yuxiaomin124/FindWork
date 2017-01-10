@@ -221,7 +221,8 @@ public class EaseContactListFragment extends EaseBaseFragment {
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
                             pd.dismiss();
-                            Toast.makeText(getActivity(), st2, 0).show();
+//                            Toast.makeText(getActivity(), st2, 0).show();
+                            Log.d(TAG, st2);
                             refresh();
                         }
                     });
@@ -230,7 +231,8 @@ public class EaseContactListFragment extends EaseBaseFragment {
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {
                             pd.dismiss();
-                            Toast.makeText(getActivity(), st3, 0).show();
+//                            Toast.makeText(getActivity(), st3, 0).show();
+                            Log.d(TAG, st3);
                         }
                     });
                 }
@@ -265,7 +267,7 @@ public class EaseContactListFragment extends EaseBaseFragment {
         }
         synchronized (this.contactsMap) {
             Iterator<Entry<String, EaseUser>> iterator = contactsMap.entrySet().iterator();
-            List<String> blackList = EMClient.getInstance().contactManager().getBlackListUsernames();
+//            List<String> blackList = EMClient.getInstance().contactManager().getBlackListUsernames();
             while (iterator.hasNext()) {
                 Entry<String, EaseUser> entry = iterator.next();
                 // to make it compatible with data in previous version, you can remove this check if this is new app
@@ -273,12 +275,12 @@ public class EaseContactListFragment extends EaseBaseFragment {
                         && !entry.getKey().equals("item_groups")
                         && !entry.getKey().equals("item_chatroom")
                         && !entry.getKey().equals("item_robots")) {
-                    if (!blackList.contains(entry.getKey())) {
-                        //filter out users in blacklist
-                        EaseUser user = entry.getValue();
-                        EaseCommonUtils.setUserInitialLetter(user);
-                        contactList.add(user);
-                    }
+//                    if (!blackList.contains(entry.getKey())) {
+//                        //filter out users in blacklist
+//                        EaseUser user = entry.getValue();
+//                        EaseCommonUtils.setUserInitialLetter(user);
+//                        contactList.add(user);
+//                    }
                 }
             }
         }

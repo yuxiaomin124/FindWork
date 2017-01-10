@@ -20,9 +20,7 @@ public class ChatActivity extends BaseChatActivity {
         EMClient.getInstance().addConnectionListener(new MyConnectionListener(this));
 
         EaseChatFragment chatFragment = new EaseChatFragment();
-
         Bundle args = new Bundle();
-
         args.putInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);
         args.putString(EaseConstant.EXTRA_USER_ID, getIntent().getStringExtra(EaseConstant.EXTRA_USER_ID));
         chatFragment.setArguments(args);

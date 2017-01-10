@@ -16,6 +16,7 @@ import com.hyphenate.util.DateUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.BaseAdapter;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 
 public abstract class EaseChatRow extends LinearLayout {
     protected static final String TAG = EaseChatRow.class.getSimpleName();
+    protected static final String TAGg = "laalla";
 
     protected LayoutInflater inflater;
     protected Context context;
@@ -169,11 +171,14 @@ public abstract class EaseChatRow extends LinearLayout {
      * set callback for sending message
      */
     protected void setMessageSendCallback(){
+        Log.d(TAGg, "laalla");
         if(messageSendCallback == null){
+            Log.d(TAGg, "panduanb");
+
             messageSendCallback = new EMCallBack() {
-                
                 @Override
                 public void onSuccess() {
+
                     updateView();
                 }
                 
@@ -307,13 +312,16 @@ public abstract class EaseChatRow extends LinearLayout {
         activity.runOnUiThread(new Runnable() {
             public void run() {
                 if (message.status() == EMMessage.Status.FAIL) {
-
                     if (message.getError() == EMError.MESSAGE_INCLUDE_ILLEGAL_CONTENT) {
-                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_invalid_content), 0).show();
+                      Log.d(TAGg, activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_invalid_content));
+
+//                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_invalid_content), 0).show();
                     } else if (message.getError() == EMError.GROUP_NOT_JOINED) {
-                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_not_in_the_group), 0).show();
+                        Log.d(TAGg, activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_not_in_the_group));
+//                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.error_send_not_in_the_group), 0).show();
                     } else {
-                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.connect_failuer_toast), 0).show();
+                        Log.d(TAGg, activity.getString(R.string.send_fail) + activity.getString(R.string.connect_failuer_toast));
+//                        Toast.makeText(activity,activity.getString(R.string.send_fail) + activity.getString(R.string.connect_failuer_toast), 0).show();
                     }
                 }
 

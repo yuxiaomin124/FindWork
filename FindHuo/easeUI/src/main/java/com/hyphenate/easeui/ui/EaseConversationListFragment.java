@@ -97,7 +97,11 @@ public class EaseConversationListFragment extends EaseBaseFragment{
         }
         
         EMClient.getInstance().addConnectionListener(connectionListener);
-        
+
+        query.setFocusable(false);
+        query.setFocusable(true);
+        query.setFocusableInTouchMode(true);
+        query.requestFocus();
         query.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 conversationListView.filter(s);

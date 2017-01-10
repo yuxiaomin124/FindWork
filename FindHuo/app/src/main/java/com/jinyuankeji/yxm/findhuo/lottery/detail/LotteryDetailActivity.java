@@ -18,11 +18,14 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.EMContactListener;
 import com.hyphenate.chat.EMChatManager;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.exceptions.HyphenateException;
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
 import com.jinyuankeji.yxm.findhuo.lottery.ui.LoginActivity;
+
+import java.util.Map;
 
 import butterknife.ButterKnife;
 

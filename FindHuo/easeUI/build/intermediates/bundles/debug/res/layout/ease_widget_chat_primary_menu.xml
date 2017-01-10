@@ -20,13 +20,13 @@
         android:orientation="horizontal"
         android:paddingTop="4dp" >
 
-        <Button
-            android:id="@+id/btn_set_mode_voice"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="6dp"
-            android:background="@drawable/ease_chatting_setmode_voice_btn"
-            android:visibility="visible" />
+        <!--<Button-->
+            <!--android:id="@+id/btn_set_mode_voice"-->
+            <!--android:layout_width="32dp"-->
+            <!--android:layout_height="32dp"-->
+            <!--android:layout_marginLeft="6dp"-->
+            <!--android:background="@drawable/ease_chatting_setmode_voice_btn"-->
+            <!--android:visibility="visible" />-->
 
         <Button
             android:id="@+id/btn_set_mode_keyboard"
@@ -110,13 +110,13 @@
             </RelativeLayout>
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btn_more"
-            android:layout_width="32dip"
-            android:layout_height="32dip"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ease_type_select_btn" />
+        <!--<Button-->
+            <!--android:id="@+id/btn_more"-->
+            <!--android:layout_width="32dip"-->
+            <!--android:layout_height="32dip"-->
+            <!--android:layout_marginLeft="4dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/ease_type_select_btn" />-->
 
         <Button
             android:id="@+id/btn_send"
