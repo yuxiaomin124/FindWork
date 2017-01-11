@@ -12,6 +12,7 @@ import android.widget.ScrollView;
 
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseActivity;
+import com.jinyuankeji.yxm.findhuo.findwork.FindWorkeViewPagerAdapter;
 import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.findcar.findcar_detail_two.FindWorkHotTypeFindCarDetailActivity;
 import com.jinyuankeji.yxm.findhuo.findwork.hot_type.hot_type_detail.psychological.FindWorkHotTypePsychologicalDetailActivity;
 import com.jinyuankeji.yxm.findhuo.lottery.LotteryViewPagerAdapter;
@@ -28,7 +29,7 @@ public class FindWorkHotTypeTaxiDetailActivity extends BaseActivity {
     private ViewPager viewPagerBanner;
 
     private LinearLayout llTip;
-    private LotteryViewPagerAdapter myAdapter;
+    private FindWorkeViewPagerAdapter myAdapter;
     private ArrayList<Integer> images;
     private Handler handler;
     private boolean flag = true;
@@ -65,7 +66,7 @@ public class FindWorkHotTypeTaxiDetailActivity extends BaseActivity {
                 finish();
             }
         });
-        myAdapter = new LotteryViewPagerAdapter(this);
+        myAdapter = new FindWorkeViewPagerAdapter(this);
         images = new ArrayList<>();
         images.add(0, R.mipmap.ic_launcher);
         images.add(1, R.mipmap.btn_pay_selected3x);

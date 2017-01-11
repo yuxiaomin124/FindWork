@@ -3,12 +3,15 @@ package com.jinyuankeji.yxm.findhuo.lottery;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.jinyuankeji.yxm.findhuo.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -18,10 +21,12 @@ import java.util.ArrayList;
 
 public class LotteryViewPagerAdapter extends PagerAdapter implements ViewPager.OnPageChangeListener  {
 
-    private ArrayList<Integer> images;
+    private ArrayList<LotteryViewPagerBean> images;
     private Context context;
     private ViewPager viewPager;
     private ImageView[] tips;
+
+    private LotteryViewPagerBean mViewPagerBean;
 
     public void setTips(ImageView[] tips) {
         this.tips = tips;
@@ -35,8 +40,10 @@ public class LotteryViewPagerAdapter extends PagerAdapter implements ViewPager.O
         this.context = context;
     }
 
-    public void setImages(ArrayList<Integer> images) {
+    public void setImages(ArrayList<LotteryViewPagerBean> images) {
         this.images = images;
+
+        notifyDataSetChanged();
     }
 
     @Override
@@ -53,13 +60,12 @@ public class LotteryViewPagerAdapter extends PagerAdapter implements ViewPager.O
     public Object instantiateItem(final ViewGroup container, final int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_lottery_banner_item,null);
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
-
-        imageView.setImageResource(images.get(position % images.size()));
+//        imageView.setImageResource(images.get(position % images.size()));
+        Log.d("LotteryViewPagerAdapter", images.get(position % images.size()).getImgurl());
+        Picasso.with(context).load(images.get(position % images.size()).getImgurl()).into(imageView);
 
         container.addView(view);
-
         viewPager.addOnPageChangeListener(this);
-
         return view;
     }
 

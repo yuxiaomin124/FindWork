@@ -26,14 +26,26 @@ import com.amap.api.maps2d.LocationSource;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.UiSettings;
 import com.amap.api.maps2d.model.LatLng;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jinyuankeji.yxm.findhuo.R;
 import com.jinyuankeji.yxm.findhuo.base.BaseFragment;
 
 import com.jinyuankeji.yxm.findhuo.lottery.detail.LotteryDetailActivity;
 import com.jinyuankeji.yxm.findhuo.lottery.more.MoreActivity;
 import com.jinyuankeji.yxm.findhuo.tools.DataValue;
+import com.jinyuankeji.yxm.findhuo.tools.JsonUtils;
 import com.jinyuankeji.yxm.findhuo.tools.MyRVOnClickListener;
 import com.jinyuankeji.yxm.findhuo.tools.SVR;
+import com.jinyuankeji.yxm.findhuo.tools.URLValue;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
+import com.squareup.picasso.Picasso;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,7 +58,7 @@ import java.util.List;
  */
 
 public class LotteryFragment extends BaseFragment implements LocationSource, AMapLocationListener {
-//    private Spinner spinner;
+    //    private Spinner spinner;
     private List<String> data_list;
     private ArrayAdapter<String> arr_adapter;
 
@@ -55,7 +67,7 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
     private TextView tvMore;
     private LinearLayout llTip;
     private LotteryViewPagerAdapter myAdapter;
-    private ArrayList<Integer> images;
+    private ArrayList<LotteryViewPagerBean> images;
     private Handler handler;
     private boolean flag = true;
     private boolean mm = true;
@@ -76,6 +88,8 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
     private TextView tv;
     private String location = "";
     private TextView tvLocation;
+
+    private LotteryViewPagerBean mBean;
 
 
     @Override
@@ -101,9 +115,9 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
 
         myAdapter = new LotteryViewPagerAdapter(getActivity());
         images = new ArrayList<>();
-        images.add(0, R.mipmap.btn_pay_selected3x);
-        images.add(1, R.mipmap.ic_launcher);
-        images.add(2, R.mipmap.btn_pay_selected3x);
+
+        request();
+
         initViewPager();
 
         rvAdapter = new LotteryStationRVAdapter(getActivity());
@@ -164,13 +178,9 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
         mLocationClient.startLocation();
 
 
-
     }
 
     private void initViewPager() {
-        myAdapter.setImages(images);
-        myAdapter.setViewPager(viewPagerBanner);
-        viewPagerBanner.setAdapter(myAdapter);
 
         handler = new Handler(new Handler.Callback() {
             @Override
@@ -253,7 +263,7 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
 //                    Toast.makeText(getActivity(), buffer.toString(), Toast.LENGTH_LONG).show();
 
                     String location = aMapLocation.getCity().toString();
-                    String tv=location.replace("市", "");
+                    String tv = location.replace("市", "");
                     tvLocation.setText(tv);
 //                    DataValue.LOCATION = aMapLocation.getCity();
                     DataValue.LOCATION = tv;
@@ -303,5 +313,54 @@ public class LotteryFragment extends BaseFragment implements LocationSource, AMa
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mMapView.onSaveInstanceState(outState);
+    }
+
+
+    private void request() {
+        HttpUtils httpUtils = new HttpUtils();
+        // 请求参数
+        RequestParams params = new RequestParams();
+        // 发送请求数据
+        Log.d("tttttttt", URLValue.URL_NOR + URLValue.URL_LOTTERY_BANNER);
+        httpUtils.send(HttpRequest.HttpMethod.POST, URLValue.URL_NOR + URLValue.URL_LOTTERY_BANNER, params,
+                new RequestCallBack<String>() {
+                    // 请求接口失败 arg1 为后台返回的错误信息
+                    @Override
+                    public void onFailure(HttpException arg0, String arg1) {
+                        Log.i("请求失败", "3333333333333333333333 error: " + arg1.toString());
+                    }
+
+                    // 请求接口成功 arg0.tostring 为后台返回的信息
+                    @Override
+                    public void onSuccess(ResponseInfo<String> arg0) {
+
+//                        if (arg0.result.toString().equals("0")) {
+//                        } else {
+                        Log.e("ahhhh请求成功", "111111111111111111111111111111 onSuccess" + arg0.result.toString());
+                        //  getList(arg0.result.toString());// 请求返回的数据，json解析
+                        String json = arg0.result.toString();
+//                           mBean = JsonUtils.getJtoC(json, LotteryViewPagerBean.class);
+
+                        Gson gson = new Gson();
+
+                        images = gson.fromJson(json, new TypeToken<List<LotteryViewPagerBean>>() {
+                        }.getType());
+                        Log.d("LotteryFragment", "images:" + images);
+                        if (images == null) {
+                            Log.d("LotteryFragment", "实体类为null");
+                        } else {
+//                            images.add(mBean);
+                            Log.d("DeclareActivity", images.get(0).getImgurl());
+
+                            myAdapter.setImages(images);
+                            myAdapter.setViewPager(viewPagerBanner);
+                            viewPagerBanner.setAdapter(myAdapter);
+
+                        }
+
+                    }
+//                    }
+                });
+
     }
 }

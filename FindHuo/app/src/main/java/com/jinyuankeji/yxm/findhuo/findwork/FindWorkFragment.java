@@ -46,7 +46,7 @@ public class FindWorkFragment extends BaseFragment {
     private ViewPager viewPagerBanner;
 
     private LinearLayout llTip;
-    private LotteryViewPagerAdapter myAdapter;
+    private FindWorkeViewPagerAdapter myAdapter;
     private ArrayList<Integer> images;
     private Handler handler;
     private boolean flag = true;
@@ -98,7 +98,7 @@ public class FindWorkFragment extends BaseFragment {
     protected void initData() {
         scrollView.scrollTo(0, 0);
 
-        myAdapter = new LotteryViewPagerAdapter(getActivity());
+        myAdapter = new FindWorkeViewPagerAdapter(getActivity());
         images = new ArrayList<>();
         images.add(0, R.mipmap.ic_launcher);
         images.add(1, R.mipmap.btn_pay_selected3x);
